@@ -12,6 +12,9 @@ import { page as movingGuidePage } from "./src/pages/guides/movingToCalifornia.m
 import { page as lienholderGuidePage } from "./src/pages/guides/lienholder.mjs";
 import { page as missingTitleGuidePage } from "./src/pages/guides/missingTitle.mjs";
 import { page as smogVinGuidePage } from "./src/pages/guides/smogVin.mjs";
+import { robotsTxt } from "./src/templates/robots.mjs";
+import { sitemapXml } from "./src/templates/sitemap.mjs";
+import { llmsTxt } from "./src/templates/llms.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, "dist");
@@ -38,6 +41,10 @@ mkdirSync(DIST, { recursive: true });
 for (const { outPath, render } of pages) {
   writePage(outPath, render());
 }
+
+writePage("robots.txt", robotsTxt());
+writePage("sitemap.xml", sitemapXml());
+writePage("llms.txt", llmsTxt());
 
 cpSync(join(__dirname, "assets"), join(DIST, "assets"), { recursive: true });
 

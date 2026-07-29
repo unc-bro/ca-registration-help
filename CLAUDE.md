@@ -111,6 +111,34 @@ invent: `stripePaymentUrl`, `supportEmail`, `supportPhone`, `analyticsId`.
 form URL, not a secret) — embedded directly on the homepage at
 `/#check-my-vehicle`.
 
+## Fillout Embed Performance
+
+The homepage embeds Fillout as a plain `<iframe src="${filloutUrl}">`
+([src/pages/index.mjs](src/pages/index.mjs), `filloutEmbed()`) — there is no
+Fillout JS embed script (`server.fillout.com/embed/v1/`), no
+`data-fillout-*` attributes, and no popup/slider button anywhere in this
+repo. Don't assume the JS-embed pattern exists when making future changes.
+
+Current loading setup, tuned so the form is fully loaded by the time a user
+scrolls to it without delaying the hero:
+
+- `<head>` (`src/templates/layout.mjs`) carries `preconnect` + `dns-prefetch`
+  for both `server.fillout.com` and `forms.fillout.com`, plus a
+  `preload as="script"` for `embed/v1/`. The preload is best-effort only —
+  since there's no JS embed, the top-level document never actually requests
+  that script, so it may log a harmless "unused preload" console warning.
+  The preconnect/dns-prefetch hints are what actually help, by warming the
+  connection before the iframe navigates.
+- The iframe has no `loading="lazy"` and loads immediately (not gated on
+  scroll or click).
+- The iframe has `fetchpriority="low"` so it yields network priority to the
+  rest of the page — moot in practice since the hero is inline SVG with no
+  network fetch of its own, but kept as a correct hint if that ever changes.
+
+Don't reintroduce `loading="lazy"` or a click-to-load pattern on this iframe
+without confirming that's actually wanted — it was deliberately removed to
+fix a "form isn't ready yet" complaint.
+
 ## Content and Design Constraints
 
 - Exactly **6 pages**: homepage + 5 guides. No `/get-started/`, `/next-step/`,
@@ -147,3 +175,7 @@ form URL, not a secret) — embedded directly on the homepage at
 7. `package.json` and `.gitignore` added to prepare for Cloudflare Pages
    deployment via GitHub; build verified working end-to-end once Node/npm
    were confirmed available on this machine.
+8. Fillout iframe loading tuned for speed: removed `loading="lazy"`, added
+   `fetchpriority="low"`, and added `preconnect`/`dns-prefetch`/`preload`
+   hints to the shared `<head>` — see **Fillout Embed Performance** above.
+   Form ID, embed type (iframe, not JS embed), URL, and styling untouched.

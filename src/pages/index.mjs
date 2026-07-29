@@ -32,7 +32,7 @@ function filloutEmbed() {
   }
   return `
   <div class="embed-wrap">
-    <iframe src="${SITE_CONFIG.filloutUrl}" title="CA Registration Help vehicle intake form" loading="lazy"></iframe>
+    <iframe src="${SITE_CONFIG.filloutUrl}" title="CA Registration Help vehicle intake form" fetchpriority="low"></iframe>
   </div>`;
 }
 

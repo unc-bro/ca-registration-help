@@ -25,6 +25,13 @@ export function layout({ path, title, description, bodyHtml, extraJsonLd = [], b
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://server.fillout.com">
+<link rel="preconnect" href="https://forms.fillout.com">
+<link rel="dns-prefetch" href="//server.fillout.com">
+<link rel="dns-prefetch" href="//forms.fillout.com">
+<link rel="preload" href="https://server.fillout.com/embed/v1/" as="script">
+
 <title>${title}</title>
 <meta name="description" content="${description}">
 <link rel="canonical" href="${canonical}">

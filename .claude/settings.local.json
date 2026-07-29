@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v python3 deno bun npx)",
+      "Read(//Applications/**)",
+      "Bash(xcode-select -p)",
+      "Bash(curl -sI http://localhost:8642/)",
+      "Bash(python3 scripts/render_guides.py)",
+      "Bash(command -v node npm)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(npm -v)",
+      "Bash(npm run *)",
+      "Bash(grep -E \"^d.*\\(src|scripts|dist\\)$|build.mjs\")",
+      "Bash(grep -rniE \"api[_-]?key|secret|token|password|AKIA[0-9A-Z]{16}|sk-[a-zA-Z0-9]{20,}\" --include=\"*.mjs\" --include=\"*.py\" --include=\"*.json\" --include=\"*.js\" -l .)",
+      "Bash(git ls-remote *)",
+      "Bash(git init *)",
+      "Bash(git branch *)",
+      "Bash(git add *)"
+    ]
+  }
+}

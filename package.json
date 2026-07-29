@@ -1,0 +1,13 @@
+{
+  "name": "ca-registration-help",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CA Registration Help — static site for California out-of-state vehicle registration assistance.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

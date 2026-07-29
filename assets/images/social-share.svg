@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#12181f"/>
+  <rect x="0" y="0" width="1200" height="630" fill="#0b6e4f" opacity="0.06"/>
+  <g transform="translate(90,230)">
+    <rect x="0" y="0" width="72" height="72" rx="20" fill="#0b6e4f"/>
+    <path d="M20 38l14 14 26-30" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <text x="190" y="285" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#ffffff">CA Registration Help</text>
+  <text x="90" y="380" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">California Out-of-State</text>
+  <text x="90" y="436" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Vehicle Registration Help</text>
+  <text x="90" y="486" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="22" fill="#c9d2cd">Private concierge assistance — not the California DMV</text>
+</svg>

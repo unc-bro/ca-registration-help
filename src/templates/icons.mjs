@@ -58,7 +58,7 @@ export const heroIllustration = `
     </linearGradient>
   </defs>
   <rect x="0" y="0" width="480" height="420" rx="24" fill="var(--color-surface-alt)"/>
-  <path d="M109 57 L176 71 L256 309 L258 330 L258 344 L198 360 L179 313 L169 289 L156 271 L151 257 L145 240 L136 215 L131 198 L133 191 L127 179 L131 170 L118 153 L122 135 L113 118 L117 100 L108 76 Z"
+  <path d="M85 55 L164 66 L224 180 L258 244 L260 256 L256 263 L260 269 L189 283 L168 272 L156 256 L162 247 L150 235 L141 224 L145 215 L135 206 L129 194 L133 187 L122 178 L114 167 L110 158 L114 151 L106 146 L112 142 L104 137 L110 130 L99 119 L102 110 L91 98 L95 89 L85 76 Z"
         fill="url(#caFill)" stroke="var(--color-brand)" stroke-width="2" stroke-opacity="0.35"/>
   <g transform="translate(230,120)">
     <rect x="0" y="0" width="150" height="190" rx="10" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1.5"/>
@@ -72,11 +72,11 @@ export const heroIllustration = `
     <circle cx="112" cy="160" r="22" fill="var(--color-brand)"/>
     <path d="M101 160l7 7 15-16" stroke="var(--color-on-brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
-  <g transform="translate(60,278) scale(2.2)" opacity="0.75">
+  <g transform="translate(55,295) scale(2.2)" opacity="0.75">
     <path d="M4 16l1.5-5A2 2 0 017.4 9.5h9.2A2 2 0 0118.5 11L20 16" stroke="var(--color-ink)" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
     <rect x="3" y="16" width="18" height="4" rx="1.4" stroke="var(--color-ink)" stroke-width="1.6" fill="var(--color-surface-alt)"/>
     <circle cx="7.5" cy="20" r="1.4" fill="var(--color-ink)"/>
     <circle cx="16.5" cy="20" r="1.4" fill="var(--color-ink)"/>
   </g>
-  <path d="M110 300 C 160 260, 200 250, 230 210" stroke="var(--color-brand)" stroke-width="2" stroke-dasharray="4 6" fill="none" opacity="0.5"/>
+  <path d="M100 320 C 150 290, 190 260, 225 220" stroke="var(--color-brand)" stroke-width="2" stroke-dasharray="4 6" fill="none" opacity="0.5"/>
 </svg>`;

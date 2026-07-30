@@ -31,7 +31,7 @@ export function siteHeader() {
       <ul>${navItems}${guidesDropdown()}</ul>
     </nav>
     <div class="header-actions">
-      ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle" })}
+      ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span class="icon-menu">${iconMenu}</span>
         <span class="icon-close">${iconClose}</span>

@@ -55,8 +55,8 @@ export function relatedGuides(currentPath) {
 export function guideEndCta() {
   return `
 <div class="inline-cta">
-  ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary btn-large", event: "guide_check_vehicle" })}
-  <p class="micro">Takes about 2–3 minutes. No obligation.</p>
+  ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary btn-large", event: "guide_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
+  <p class="micro">Free to check. Takes about 2–3 minutes. No payment required.</p>
 </div>`;
 }
 
@@ -67,7 +67,8 @@ export function guideMidCta(text = "Not sure how this applies to your vehicle?")
   <div>
     <h4>${text}</h4>
     <p>Start with your actual vehicle and situation instead of generic instructions.</p>
-    ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "guide_check_vehicle" })}
+    ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "guide_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
+    <p class="micro">Free to check. No payment required.</p>
   </div>
 </div>`;
 }

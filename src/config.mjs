@@ -36,7 +36,9 @@ export const SITE_CONFIG = {
 };
 
 export const CTA_LABELS = {
-  primary: "Check My Vehicle",
+  primary: "Get My Free Registration Plan",
+  primaryLine1: "Get My Free",
+  primaryLine2: "Registration Plan",
   secondaryHowItWorks: "See How It Works",
   payment: {
     start: "Start My Registration",
@@ -48,7 +50,7 @@ export const CTA_LABELS = {
 // The site has exactly six pages: the homepage and five guides. There is no
 // separate /get-started/, /next-step/, /about/, /contact/, or FAQ page — the
 // Fillout intake is embedded directly on the homepage at this anchor, and
-// every "Check My Vehicle" CTA site-wide points here.
+// every primary CTA site-wide points here.
 export const ROUTES = {
   home: "/",
   checkMyVehicle: "/#check-my-vehicle",

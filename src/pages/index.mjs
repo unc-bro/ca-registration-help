@@ -53,11 +53,11 @@ export function page() {
   <div class="container">
     <div class="hero-copy">
       <h1>California Out-of-State Vehicle Registration — Without Figuring Out the DMV Yourself</h1>
-      <p class="lede">Moved to California or bought a vehicle with an out-of-state title? We help determine what California requires, organize the right steps and paperwork, and coordinate eligible registration processing through a California DMV-authorized registration provider.</p>
+      <p class="lede">Moved to California or bought a vehicle with an out-of-state title? Answer a few questions to see the likely California requirements and next steps for your specific vehicle. Paid registration help is optional.</p>
       <div class="hero-cta-row">
         <div>
-          ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary btn-large", event: "homepage_check_vehicle" })}
-          <p class="micro">Takes about 2–3 minutes. No obligation.</p>
+          ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary btn-large", event: "homepage_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
+          <p class="micro">Free personalized next steps • 2–3 minutes</p>
         </div>
         <a class="btn btn-ghost" href="#how-it-works">${CTA_LABELS.secondaryHowItWorks} →</a>
       </div>
@@ -108,7 +108,8 @@ export function page() {
     </div>
 
     <div class="inline-cta">
-      ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle" })}
+      ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
+      <p class="micro">Free to check. No payment required.</p>
     </div>
   </div>
 </section>
@@ -130,7 +131,8 @@ export function page() {
       ).join("")}
     </div>
     <div class="inline-cta">
-      ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle" })}
+      ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
+      <p class="micro">Free to check. No payment required.</p>
     </div>
   </div>
 </section>
@@ -141,7 +143,8 @@ export function page() {
     <h2>Registering an Out-of-State Vehicle in California Can Get Complicated Quickly</h2>
     <p class="lede">The exact steps depend on how you acquired the vehicle, where it's currently titled, whether you have the title in hand, whether a lender holds it, whether registration is current, and factors like mileage, emissions requirements, and vehicle verification.</p>
     <p>Instead of working through generic DMV instructions on your own, start with your actual vehicle and situation.</p>
-    ${ctaLink({ label: CTA_LABELS.primary, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle" })}
+    ${ctaLink({ label: CTA_LABELS.primaryLine1, href: ROUTES.checkMyVehicle, variant: "btn-primary", event: "homepage_check_vehicle", line2: CTA_LABELS.primaryLine2 })}
+    <p class="micro">Free to check. No payment required.</p>
   </div>
 </section>
 
@@ -214,9 +217,9 @@ export function page() {
   <div class="container-narrow">
     <div class="section-header center">
       <span class="eyebrow">Get Started</span>
-      <h2>Check Your California Vehicle Registration</h2>
-      <p class="lede">Answer a few questions about your vehicle and situation. We'll use your answers to determine what California registration steps may apply and whether we can help coordinate the process.</p>
-      <p class="micro">Takes about 2–3 minutes. No obligation.</p>
+      <h2>Get Your Personalized Registration Plan</h2>
+      <p class="lede">Answer a few questions about your vehicle, title, and situation. We'll identify the likely California requirements and explain what to do next.</p>
+      <p class="micro">Free • Takes 2–3 minutes • No payment required</p>
     </div>
     ${filloutEmbed()}
   </div>

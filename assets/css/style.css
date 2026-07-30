@@ -477,6 +477,10 @@ p {
     font-size: 0.82rem;
     min-height: 40px;
   }
+  .header-actions .btn-stacked {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
   .nav-toggle {
     width: 36px;
     height: 36px;
@@ -551,6 +555,18 @@ p {
 .btn-large {
   padding: 1rem 2rem;
   font-size: 1.05rem;
+}
+
+.btn-stacked {
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.15;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.btn-stacked .btn-line2 {
+  margin-top: 1px;
 }
 
 .micro {

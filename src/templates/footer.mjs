@@ -1,4 +1,4 @@
-import { SITE_CONFIG, ROUTES } from "../config.mjs";
+import { SITE_CONFIG, ROUTES, CTA_LABELS } from "../config.mjs";
 import { GUIDES } from "../data/nav.mjs";
 import { iconLogo } from "./icons.mjs";
 
@@ -18,7 +18,7 @@ export function siteFooter() {
         </a>
         <p>California out-of-state vehicle registration assistance.</p>
         <nav aria-label="Quick links" style="margin-top:var(--space-4);">
-          <a href="${ROUTES.checkMyVehicle}" style="text-decoration:none;font-weight:600;font-size:0.9rem;color:var(--color-brand-dark);">Check My Vehicle</a>
+          <a href="${ROUTES.checkMyVehicle}" style="text-decoration:none;font-weight:600;font-size:0.9rem;color:var(--color-brand-dark);">${CTA_LABELS.primary}</a>
         </nav>
       </div>
       <nav class="footer-links" aria-label="Guides">

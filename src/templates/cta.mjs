@@ -1,11 +1,16 @@
 import { SITE_CONFIG } from "../config.mjs";
 
-// Reusable "Check My Vehicle" style CTA. Every button that should open the
-// intake flow renders through this function and points at ROUTES.getStarted
-// (never directly at an external Fillout URL), per the funnel design.
-export function ctaLink({ label, href, variant = "btn-primary", event = "cta_click", block = false }) {
+// Reusable primary-intent CTA. Every button that should open the intake flow
+// renders through this function and points at ROUTES.checkMyVehicle (never
+// directly at an external Fillout URL), per the funnel design.
+export function ctaLink({ label, href, variant = "btn-primary", event = "cta_click", block = false, line2 = null }) {
   const blockClass = block ? " btn-block" : "";
-  return `<a class="btn ${variant}${blockClass}" href="${href}" data-event="${event}">${label}</a>`;
+  const stackedClass = line2 ? " btn-stacked" : "";
+  const ariaLabel = line2 ? ` aria-label="${label} ${line2}"` : "";
+  const content = line2
+    ? `<span class="btn-line1" aria-hidden="true">${label}</span><span class="btn-line2" aria-hidden="true">${line2}</span>`
+    : label;
+  return `<a class="btn ${variant}${blockClass}${stackedClass}" href="${href}" data-event="${event}"${ariaLabel}>${content}</a>`;
 }
 
 // Payment CTA — the only component allowed to reference SITE_CONFIG.stripePaymentUrl.

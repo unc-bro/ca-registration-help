@@ -58,9 +58,9 @@ export const heroIllustration = `
     </linearGradient>
   </defs>
   <rect x="0" y="0" width="480" height="420" rx="24" fill="var(--color-surface-alt)"/>
-  <path d="M85 55 L164 66 L224 180 L258 244 L260 256 L256 263 L260 269 L189 283 L168 272 L156 256 L162 247 L150 235 L141 224 L145 215 L135 206 L129 194 L133 187 L122 178 L114 167 L110 158 L114 151 L106 146 L112 142 L104 137 L110 130 L99 119 L102 110 L91 98 L95 89 L85 76 Z"
+  <path d="M60 40 L163 58 L163 163 L285 331 L288 348 L283 359 L288 369 L195 390 L168 373 L153 348 L160 334 L145 317 L133 299 L138 285 L125 271 L118 254 L123 243 L108 229 L98 212 L93 198 L98 187 L88 180 L95 173 L85 166 L93 156 L78 138 L83 124 L68 107 L73 93 L60 72 Z"
         fill="url(#caFill)" stroke="var(--color-brand)" stroke-width="2" stroke-opacity="0.35"/>
-  <g transform="translate(230,120)">
+  <g transform="translate(300,60)">
     <rect x="0" y="0" width="150" height="190" rx="10" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1.5"/>
     <rect x="18" y="24" width="90" height="10" rx="5" fill="var(--color-brand)" opacity="0.85"/>
     <rect x="18" y="48" width="114" height="7" rx="3.5" fill="var(--color-border)"/>
@@ -72,11 +72,11 @@ export const heroIllustration = `
     <circle cx="112" cy="160" r="22" fill="var(--color-brand)"/>
     <path d="M101 160l7 7 15-16" stroke="var(--color-on-brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
-  <g transform="translate(55,295) scale(2.2)" opacity="0.75">
+  <g transform="translate(50,358) scale(2.2)" opacity="0.75">
     <path d="M4 16l1.5-5A2 2 0 017.4 9.5h9.2A2 2 0 0118.5 11L20 16" stroke="var(--color-ink)" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
     <rect x="3" y="16" width="18" height="4" rx="1.4" stroke="var(--color-ink)" stroke-width="1.6" fill="var(--color-surface-alt)"/>
     <circle cx="7.5" cy="20" r="1.4" fill="var(--color-ink)"/>
     <circle cx="16.5" cy="20" r="1.4" fill="var(--color-ink)"/>
   </g>
-  <path d="M100 320 C 150 290, 190 260, 225 220" stroke="var(--color-brand)" stroke-width="2" stroke-dasharray="4 6" fill="none" opacity="0.5"/>
+  <path d="M95 400 C 170 380, 230 300, 285 210" stroke="var(--color-brand)" stroke-width="2" stroke-dasharray="4 6" fill="none" opacity="0.5"/>
 </svg>`;

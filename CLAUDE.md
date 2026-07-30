@@ -33,9 +33,15 @@ src/data/nav.mjs         PRIMARY_NAV, FOOTER guide links, GUIDES (5 guides)
 src/data/content.mjs     Situations, FAQs, How It Works, Why Us, official sources
 src/templates/           layout, header, footer, cta, faq, breadcrumbs,
                          guideParts, structuredData, icons — reusable pieces
+src/templates/robots.mjs   robots.txt generator
+src/templates/sitemap.mjs  sitemap.xml generator (built from ROUTES)
+src/templates/llms.mjs     llms.txt generator (built from ROUTES + GUIDES)
 src/pages/index.mjs      Homepage
 src/pages/guides/*.mjs   5 guide pages
-build.mjs                Build script (run via `npm run build`)
+build.mjs                Build script (run via `npm run build`) — also
+                         writes robots.txt, sitemap.xml, llms.txt to dist/
+wrangler.jsonc           Cloudflare Workers static-assets deploy config
+                         (assets.directory: "dist") — see Deployment below
 assets/                  css/, js/, icons/, images/ — copied verbatim to dist/
 scripts/render_guides.py Legacy Python stand-in used before Node was
                          confirmed installed on this machine. No longer
@@ -57,30 +63,44 @@ copies `assets/` into `dist/assets/`. **Build output directory: `dist`**.
 Requires Node ≥18 (declared in `package.json` `engines`). Verified working
 end-to-end in this environment (Node v24.18.0 / npm 11.16.0).
 
-## Cloudflare Pages Deployment
+## Cloudflare Workers Deployment (live)
 
+This account's Cloudflare dashboard no longer offers the classic separate
+"Pages" product — new static sites go through the unified **Workers**
+flow instead, which deploys via `wrangler` rather than a bare
+build-command-only Pages project. Deployed and live:
+
+- **Project:** `ca-registration-help`, GitHub-connected (auto-deploys on
+  every push to `main`).
 - **Build command:** `npm run build`
-- **Build output directory:** `dist`
-- `dist/` is gitignored — Cloudflare regenerates it fresh on every deploy; it
-  is not committed to the repo.
-- Connect via **Workers & Pages → Create → Pages → Connect to Git** in the
-  Cloudflare dashboard, select the GitHub repo, enter the settings above.
-- Custom domain (CARegistrationHelp.com) gets attached afterward under the
-  Pages project's **Custom domains** tab — not yet done.
+- **Deploy command:** `npx wrangler deploy` — requires `wrangler.jsonc` at
+  repo root (`assets.directory: "dist"`); without it, deploy fails since
+  Wrangler has nothing telling it where the static output lives.
+- `dist/` is still gitignored — built fresh on every Cloudflare deploy, not
+  committed.
+- **Live URLs:** `https://caregistrationhelp.com`,
+  `https://www.caregistrationhelp.com`, and the underlying
+  `https://ca-registration-help.dan-0d8.workers.dev`.
+- Custom domains are configured under the Worker's **Domains** tab:
+  - `caregistrationhelp.com` added via **+ Add Domain** (auto-creates its
+    DNS record).
+  - `www.caregistrationhelp.com` required a **manually added DNS CNAME**
+    (`www` → `caregistrationhelp.com`, proxied) — the "+ Add Domain" search
+    doesn't reliably match subdomains of an already-connected zone. An
+    existing wildcard Route (`*.caregistrationhelp.com/*`) picks up routing
+    once the DNS record resolves.
+  - Domain was registered directly through Cloudflare Registrar, so
+    nameservers were never a factor — DNS was already fully authoritative
+    with Cloudflare.
+- SPF (`v=spf1 -all`) and DMARC (`v=DMARC1; p=reject; ...`) TXT records were
+  added to prevent spoofing of `@caregistrationhelp.com` — no inbound email
+  is configured (no MX/DKIM), since the business isn't receiving email at
+  that domain yet.
 
 ## GitHub Workflow
 
-Repo is **not yet initialized** as of this writing (no `.git` directory).
-Standard flow when ready:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin <github-repo-url>
-git push -u origin main
-```
+Repo is initialized and pushed. Remote: `origin` →
+`https://github.com/unc-bro/ca-registration-help.git`, branch `main`.
 
 Only commit when explicitly asked. Never force-push. Never commit secrets.
 
@@ -179,3 +199,15 @@ fix a "form isn't ready yet" complaint.
    `fetchpriority="low"`, and added `preconnect`/`dns-prefetch`/`preload`
    hints to the shared `<head>` — see **Fillout Embed Performance** above.
    Form ID, embed type (iframe, not JS embed), URL, and styling untouched.
+9. Repo pushed to GitHub (`unc-bro/ca-registration-help`) and deployed live
+   on Cloudflare Workers (not classic Pages — see **Cloudflare Workers
+   Deployment** above), with both apex and `www` custom domains working and
+   SPF/DMARC anti-spoofing records in place.
+10. `robots.txt`, `sitemap.xml`, and `llms.txt` added (generated at build
+    time from `ROUTES`/`GUIDES`, written to `dist/` alongside the HTML
+    pages) to improve discoverability by search engines and LLM crawlers.
+11. Hero illustration (`heroIllustration` in `src/templates/icons.mjs`)
+    redrawn: the California shape was an unrecognizable abstract polygon
+    and the vehicle icon read as a plain box — replaced with an outline
+    tracing an actual CA-shape reference and the site's existing simple
+    car glyph (scaled up from `iconCar`) for consistency.
